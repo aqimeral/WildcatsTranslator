@@ -69,6 +69,7 @@ def query_llm_robust(post: str) -> tuple[bool, str]:
 
   language = language.lower()
   language = language.replace('.', '')
+  print(f"LLM Outcome: Language - {language}, Translation - {translation}")
 
   # One word language
   if (" " in language):
@@ -78,6 +79,7 @@ def query_llm_robust(post: str) -> tuple[bool, str]:
   # Not translated
   if language != 'english':
     translation_language = get_language(translation)
+    print(f"Translation language - {translation_language}")
     translation_language = translation_language.lower().replace('.', '')
     if (language == translation_language):
       print("LLM failed to translate post")
