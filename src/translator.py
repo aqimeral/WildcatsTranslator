@@ -77,9 +77,9 @@ def query_llm_robust(post: str) -> tuple[bool, str]:
 
   # Not translated
   if language != 'english':
-    translation_language = get_language(translation)
-    translation_language = translation_language.lower().replace('.', '')
-    if (language == translation_language):
+    try:
+      translation.encode(encoding='utf-8').decode('ascii')
+    except UnicodeDecodeError:
       print("LLM failed to translate post")
       return default_res
 
