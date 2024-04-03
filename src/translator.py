@@ -56,6 +56,7 @@ def query_llm_robust(post: str) -> tuple[bool, str]:
   try:
     language = get_language(post)
     assert(type(language) == str)
+    assert(language != '')
   except:
     print("LLM Failed to get the language of the Post.")
     return default_res
