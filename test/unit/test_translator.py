@@ -1,4 +1,5 @@
 from src.translator import query_llm_robust
+from google.cloud import aiplatform
 from mock import patch
 
 @patch('vertexai.preview.language_models._PreviewChatSession.send_message')
